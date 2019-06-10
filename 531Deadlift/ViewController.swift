@@ -9,12 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var weekOneWeight: UITextField!
+    @IBOutlet weak var weekTwoWeight: UITextField!
+    @IBOutlet weak var weekThreeWeight: UITextField!
+    @IBOutlet weak var weekFourWeight: UITextField!
+    @IBOutlet weak var deadliftOneRepMaxInput: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
+    
+    @IBAction func computeWeights(_ sender: Any) {
+        let oneRepMax = Double(deadliftOneRepMaxInput.text!)
+        let weight = Deadlift(deadliftMax: oneRepMax!)
+        
+        weekOneWeight.text=String(weight.weekOne())
+    }
+    
 
 }
 
